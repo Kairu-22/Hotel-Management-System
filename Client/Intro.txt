@@ -1,1 +1,0 @@
-This directory contains all the necessary files required to implement the client login system and the client-side components of the project.
