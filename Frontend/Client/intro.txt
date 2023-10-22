@@ -1,0 +1,1 @@
+This folder contains necessary files for client login system and various other components visible to the client.
