@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-width: 480px;
+    min-height: 860px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 20px;
+}
+
+.room-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.room-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; 
+}
+
+.Status
+{
+    background-color: rgb(141, 238, 193);
+}
+.room-info {
+    flex: 1;
+    margin-left: 20px; }
+
+.room-info h1 {
+    font-size: 22px;
+}
+
+.room-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.room-features li {
+    margin-bottom: 10px;
+}
+
+.room-price {
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #40abf3;
+    border: none;
+    color: rgb(14, 14, 12);
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #bad6de;
+}
+
+@media only screen and (max-width: 768px) {
+    .room-details {
+        flex-direction: column; 
+    }
+
+    .room-image {
+        margin-bottom: 20px; /* Add space between image and text on small screens */
+    }
+}
