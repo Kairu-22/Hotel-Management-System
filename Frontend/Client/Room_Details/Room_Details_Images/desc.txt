@@ -1,0 +1,1 @@
+This Folder Contains All The Images Which Are Needed For Room_Details Page Of Site. [ Image Src Used in HTML Is In Format = " ./Room_Details_Images/<Required Image>.jpg/png" 
