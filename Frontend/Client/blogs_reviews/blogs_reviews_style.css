@@ -128,11 +128,7 @@ body {
   
   .note {
     font-size: 1.1rem;
-<<<<<<< HEAD
     color: rgba(1, 5, 12, 0.901); /* Corrected color definition */
-=======
-    color: rgb(103, 82, 238); /* Corrected color definition */
->>>>>>> c843f0bd044b7eb245c8c2db9c397a0801ec4d66
     font-style: italic;
   }
   
