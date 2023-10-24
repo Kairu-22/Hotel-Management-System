@@ -23,8 +23,8 @@ body {
 }
 
 .circle {
-    width: 90px; /* Adjust the width and height as needed */
-    height: 80px;
+    width: 100px; /* Adjust the width and height as needed */
+    height: 100px;
     background-color: #f0f0f0; /* Circle background color */
     border-radius: 50%; /* Makes it a circle */
     /* display: flex; */
@@ -124,7 +124,7 @@ body {
   
   .note {
     font-size: 1.1rem;
-    color: red; /* Corrected color definition */
+    color: rgb(66, 140, 205); /* Corrected color definition */
     font-style: italic;
   }
   
