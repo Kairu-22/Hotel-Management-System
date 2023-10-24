@@ -64,14 +64,18 @@ body {
     color: white;
 }
 
-#logoname{
-    margin-left:10px;
-    color: goldenrod;
-    font-family: 'Playfair Display SC', serif;
-    font-size:xx-large;
-    margin-right: 200px;
-
+#logoname {
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 200px;
+  color: goldenrod;
+  font-family: 'Playfair Display SC', serif;
+  font-size: xx-large;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); 
+  font-weight: bold; 
 }
+
 .navbar-item a.highlighted {
     background: linear-gradient(lightgrey,black); 
     color: white;
@@ -124,7 +128,7 @@ body {
   
   .note {
     font-size: 1.1rem;
-    color: rgb(66, 140, 205); /* Corrected color definition */
+    color: rgba(1, 5, 12, 0.901); /* Corrected color definition */
     font-style: italic;
   }
   
