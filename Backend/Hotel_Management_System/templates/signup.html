@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot_Application</title>
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a id="logo" href="/">Screenshot_Application</a>
+            <div class="navbar" id="navbar">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/loginuser">Login</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+
+        <!-- Alert shown here... Shows when Error/Success in Signup... Put it properly -->
+        {% if messages %}
+				  {% for message in messages %}
+				  <div class="text" role="alert">
+					{{ message }}
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				  </div>
+				  {% endfor %}
+				  {% endif %}
+</section>
+<br><br>
+
+
+
+
+    <form method="post" action="/signup">
+        {% csrf_token %}
+        <h1>REGISTER</h1>
+        <div class="text">
+            <input type="text" name="name" placeholder="Name"> 
+        </div>
+        <div class="text">
+            <input type="text" name="email" placeholder="Email"> 
+        </div>
+        <div class="text">
+            <input type="text" name="password" placeholder="Password">
+        </div>
+        <input type="submit" value="Register" class="login">
+        <br><br>
+        <div class="su">
+            Already have an account?
+        </br>
+        <a href="/signin">Log in</a>
+        </div>
+    </form>
+    
+</body>
+</html>

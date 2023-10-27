@@ -2,11 +2,8 @@ from django.shortcuts import render, HttpResponse
 
 
 # Create your views here.
-def index (request):
-    return HttpResponse("This is homepage")
-
-def about (request):
-    return HttpResponse("This is about")
+def Welcome (request):
+    return render(request, 'Welcome.html')
 
 def rooms (request):
     return HttpResponse("This is rooms")
@@ -16,3 +13,6 @@ def blogs (request):
 
 def offers (request):
     return HttpResponse("This is offers")
+
+def signin (request):
+    return render(request, 'signin.html')
