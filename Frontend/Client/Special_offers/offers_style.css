@@ -40,6 +40,7 @@ body {
     display: block;
 }
 
+
 .navbar-list {
     list-style: none;
     font-weight: bold;
@@ -56,6 +57,7 @@ body {
     text-decoration: none;
     letter-spacing: 1px;
     transition: color 0.3s;
+   
 }
 
 .navbar-item a:hover {
@@ -64,23 +66,26 @@ body {
 
 #logoname {
     margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 200px;
     color: goldenrod;
     font-family: 'Playfair Display SC', serif;
     font-size: xx-large;
-    margin-right: 200px;
-}
-
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); 
+    font-weight: bold; 
+  }
+  
 .navbar-item a.highlighted {
-    background: linear-gradient(lightgrey, black);
+    background: linear-gradient(lightgrey,black); 
     color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 10px 15px; 
+    border-radius: 5px; 
 }
 
 .navbar-item a.highlighted:hover {
     color: blanchedalmond;
 }
-
 @media screen and (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -89,64 +94,87 @@ body {
     }
 }
 
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+
+
+.offers {
+    text-align: center;
+    margin: 20px;
 }
 
-/* Your existing CSS */
-
-.content-container {
-    display: flex;
-    
-    padding: 20px;
-    width: 100vw;
-}
-
-.details {
-    /* background-color: aqua; */
-    width: 45%;
-    padding: 20px;
-}
-
-.details h2 {
-    color: #333;
-    font-size: 24px;
-    margin-top: 0;
-}
-
-.details h4 {
-    color: #666;
-}
-
-.icons{
-    width: 24px; /* Adjust the size as needed */
-    height: 24px; 
-}
-
-
-
-.photo-gallery {
-    width: 55%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; /* Adjusted to align photos to the left */
-    padding: 10px;
-}
-
-.photo {
-    width: calc(50% - 10px); /* Adjusted to fit two photos in the first row with spacing */
+.offers h1 {
+    font-size: 60px;
     margin-bottom: 20px;
-    margin-right: 20px; /* Added margin to create spacing between photos */
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 
-.photo:nth-child(2n) {
-    margin-right: 0; /* Remove margin for even-indexed photos in the first row */
+.offer-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    background-color: white;
 }
 
-.photo img {
+.offer-card img {
     max-width: 100%;
     height: auto;
+    border-radius: 10px 10px 0 0;
+    display: block;
+    transition: transform 0.2s;
 }
+
+.offer-card h2 {
+    font-size: 24px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+offer-card p {
+    font-size: 16px;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.offer-card img:hover {
+    transform: scale(1.05);
+}
+
+
+.offer-card:nth-child(2n) {
+    background-color: #f5f5f5; 
+}
+
+
+.offer-card .offer-description {
+    display: none; 
+}
+
+.offer-card .learn-more-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Add this style to your CSS file */
+.offer-card p.show-description {
+    display: block;
+}
+
+
+
