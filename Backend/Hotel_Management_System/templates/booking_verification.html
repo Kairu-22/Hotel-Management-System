@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tour de Atlantis</title>
+    <link rel="stylesheet" href="{% static 'Welcomestyle.css' %}">
+  </head>
+  <body>
+    <nav class="navbar">
+        <div class="circle">
+            <img src="{%static 'poseidon_logo.png'%}" alt="Hotel logo">
+        </div>
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="/" id="logoname">TOUR De ATLANTIS</a></li>
+            <li class="navbar-item"><a href="/">ABOUT</a></li>
+            <li class="navbar-item"><a href="/rooms">ROOMS</a></li>
+            <li class="navbar-item"><a href="/blogs">BLOGS AND REVIEWS</a></li>
+            <li class="navbar-item"><a href="/offers">SPECIAL OFFERS</a></li>
+            <li class="navbar-item"><a href="/booking">RESERVATIONS</a></li>
+            <li class="navbar-item"><a href="/signin" class="highlighted">SIGNIN</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+            Guest name: {{Username}}
+            check in : {{checkin}}
+            checkout : {{checkout}}
+            room type : {{roomtype}}
+            <br>
+            total price: {{price}}* 
+
+      </div>
+
+
+  </body>
+</html>
