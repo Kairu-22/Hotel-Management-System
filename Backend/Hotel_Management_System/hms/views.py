@@ -18,6 +18,9 @@ def blogs (request):
 def offers (request):
     return render(request, 'offers.html')
 
+def gallery (request):
+    return render(request, 'gallery.html')
+
 def signin (request):
     if request.method=="POST" :
         username = request.POST.get('username')
