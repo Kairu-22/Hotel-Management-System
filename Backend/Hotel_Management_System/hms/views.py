@@ -71,4 +71,5 @@ def signin (request):
     return render(request, 'signin.html')
 
 def signout (request):
-    return render(request, 'Welcome.html')
+    logout(request)
+    return redirect('/signin')
