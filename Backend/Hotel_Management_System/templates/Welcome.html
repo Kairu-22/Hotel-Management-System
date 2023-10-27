@@ -20,12 +20,12 @@
             <li class="navbar-item"><a href="/rooms">ROOMS</a></li>
             <li class="navbar-item"><a href="/blogs">BLOGS AND REVIEWS</a></li>
             <li class="navbar-item"><a href="/offers">SPECIAL OFFERS</a></li>
-            <li class="navbar-item"><a href="/">RESERVATIONS</a></li>
+            <li class="navbar-item"><a href="/booking">RESERVATIONS</a></li>
             <li class="navbar-item"><a href="/signin" class="highlighted">SIGNIN</a></li>
         </ul>
     </nav>
     
-    <video width="700" height="360" controls loop style="border: 2px solid #333;">
+    <video width="700" height="360" controls loop style="border: 2px solid #333;" autoplay>
         <source src="{% static 'Welcome_img/poseiden.mp4'%}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -35,16 +35,16 @@
 
                 <h4>7 Star Deluxe Hotel in <b>Goa</b> near Baga Beach </h4> <br>
                 <p> <div class="icon-container">
-                    <img src="images/location.png" alt="location" class="icons">
+                    <img src="{%static 'Welcome_img/location.png'%}" alt="location" class="icons">
                     <span> Bardez, Goa, India</span>
                 </div>
                 <div class="icon-container">
-                    <img src="images/call.png" alt="call" class="icons">
+                    <img src="{% static "Welcome_img/call.png" %}" alt="call" class="icons">
                     <span>+91 522-6711000</span>
                 </div>
 
                 <div class="icon-container">
-                    <img src="images/message.png" alt="message" class="icons">
+                    <img src="{% static "Welcome_img/message.png" %}" alt="message" class="icons">
                     <span><u>tourdeatlantis.goa@hotels.com</u></span>
                 </div>
                     <br>Stunning. Luxurious. Paradise. Tour de Atlantis, nestled near the picturesque Baga Beach, is your gateway to a captivating coastal romance. If Baga Beach is the epitome of Goan beauty, 

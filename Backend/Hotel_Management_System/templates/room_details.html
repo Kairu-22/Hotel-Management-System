@@ -1,0 +1,206 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Room Details</title>
+
+    <link rel="stylesheet" href="{% static 'room_details_style.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">      
+    </head>
+    <style>
+        </style>
+        
+    <body>
+
+        <nav class="navbar">
+            <div class="circle">
+                <img src="{%static 'poseidon_logo.png'%}" alt="Hotel logo">
+            </div>
+            <ul class="navbar-list">
+                <li class="navbar-item"><a href="/" id="logoname">TOUR De ATLANTIS</a></li>
+                <li class="navbar-item"><a href="/">ABOUT</a></li>
+                <li class="navbar-item"><a href="/rooms">ROOMS</a></li>
+                <li class="navbar-item"><a href="/blogs">BLOGS AND REVIEWS</a></li>
+                <li class="navbar-item"><a href="/offers">SPECIAL OFFERS</a></li>
+                <li class="navbar-item"><a href="/booking">RESERVATIONS</a></li>
+                <li class="navbar-item"><a href="/signin" class="highlighted">SIGNIN</a></li>
+            </ul>
+        </nav>
+    
+    <div class="container">
+
+        <div class="room-details kingbed_garden">
+            <img src="{% static 'Rooms_img/Room_Detail_Kingbed_garden.jpeg'%}" alt="Room Image" class="room-image">
+        <div class="room-info">
+            <h1>Superior Room King Bed Garden View</h1>
+            <p>Description: The lush views that frame your windows will fill you with a respect for nature, making
+                all those who live here serene visitors.</p>
+                    <div class="room-features">
+                        
+                            <ul>
+                                <li>Room Size: 27 Sq Mt <img src="{% static 'Rooms_img/Room_Detail_area.png'%}" alt="" style="width: 20px; height: 15px;"> </li>
+                                <li>Inclusive WiFi <i class="fas fa-wifi"></i></li>
+                                <li>Maximum Occupancy: Up to 4 guests <i class="fas fa-users"></i></li>
+                                <li>Bed Type: Twin <img src="{% static 'Rooms_img/Room_Detail_bedType.png'%}" alt="" style="width: 20px; height: 20px;"> </li>
+                            </ul>
+                            
+                        
+                    </div>
+            <div class="room-price">
+                Price per night: ₹8,140
+        
+            </div>
+            <button class="Status" > Available </button>
+            <button class="book-button" onclick="toggleDetailsprice('kingbed_garden', 8140)">Book Now</button>
+        </div>
+    </div>
+
+
+    <div class="room-details superiorbed_garden">
+    <img src="{% static 'Rooms_img/Room_Details_superiorGardenView.jpeg'%}" alt="Room Image" class="room-image">
+<div class="room-info">
+    <h1>Superior Room Twin Bed Garden View</h1>
+    <p>The lush views that frame your windows will fill you with a respect for nature, making all those who live here serene visitors...</p>
+    <div class="room-features">
+        <ul>
+            <li>Room Size: 27 Sq Mt <img src="{% static 'Rooms_img/Room_Detail_area.png'%}" alt="" style="width: 20px; height: 15px;"></li>
+            <li>Inclusive WiFi <i class="fas fa-wifi"></i></i></li>
+            <li>Maximum Occupancy: Up to 4 guests <i class="fas fa-users"></i> </li>
+            <li>Bed Type: Twin <img src="{% static 'Rooms_img/Room_Detail_bedType.png'%}" alt="" style="width: 20px; height: 20px;"></li>
+        </ul>
+    </div>
+    <div class="room-price">
+        Price per night: ₹8,140
+    </div>
+    <button class="Status"> Available </button>
+    <button class="book-button" onclick="toggleDetailsprice('superiorbed_garden', 8140)">Book Now</button>
+</div>
+</div>
+
+
+
+<div class="room-details kingbed_pool">
+    <img src="{% static 'Rooms_img/Room_Details_superiorPoolView.jpeg'%}" alt="Room Image" class="room-image">
+    <div class="room-info">
+        <h1>Superior Room King Bed Pool View</h1>
+        <p>Overlooking the stunning ornamental pool, these rooms give you the sense of being in a different time and space. Mid-century modern meets Indian contemporary with a passion for colour and textures. Enjoy their softness under your skin.</p>
+        <div class="room-features">
+            <ul>
+                <li>Room Size: 27 Sq Mt <img src="{% static 'Rooms_img/Room_Detail_area.png'%}" alt="" style="width: 20px; height: 15px;"></li>
+            <li>Inclusive WiFi <i class="fas fa-wifi"></i></i></li>
+            <li>Maximum Occupancy: Up to 4 guests <i class="fas fa-users"></i> </li>
+            <li>Bed Type: King <img src="{% static 'Rooms_img/Room_Detail_bedType.png'%}" alt="" style="width: 20px; height: 20px;"></li>
+        </ul>
+    </div>
+    <div class="room-price">
+        Price per night: ₹10,187
+    </div>
+    <button class="Status"> Available </button>
+    <button class="book-button" onclick="toggleDetailsprice('kingbed_pool', 10187)">Book Now</button>
+</div>
+</div>
+
+
+
+<div class="room-details Deluxe">
+    <img src="{% static 'Rooms_img/Room_Detail_Deluxe.jpeg'%}" alt="Room Image" class="room-image">
+<div class="room-info">
+    <h1>Deluxe Room King Bed</h1>
+    <p>This is where modern royalty gets a respite from routine, whether you’re on your own, as a couple or a family. Treats can be delivered as you stay inspired by our sophisticated Awadhi architecture. These extravagant personal spaces are crafted for the cultured, with one suite having the option of a private sit-out by the garden bloom. All in all, an enchanting blend of modern living and ancient history.</p>
+    <div class="room-features">
+        <ul>
+            <li>Room Size: 27 Sq Mt <img src="{% static 'Rooms_img/Room_Detail_area.png'%}" alt="" style="width: 20px; height: 15px;"></li>
+            <li>Inclusive WiFi <i class="fas fa-wifi"></i></i></li>
+            <li>Maximum Occupancy: Up to 4 guests <i class="fas fa-users"></i> </li>
+            <li>Bed Type: Twin <img src="{% static 'Rooms_img/Room_Detail_bedType.png'%}" alt="" style="width: 20px; height: 20px;"></li>
+        </ul>
+    </div>
+    <div class="room-price">
+        Price per night: ₹11,187
+    </div>
+    <button class="Status"> Available </button>
+    <button class="book-button" onclick="toggleDetailsprice('Deluxe', 11187)">Book Now</button>
+</div>
+</div>
+
+
+
+
+<div class="room-details Executive">
+    <img src="{% static 'Rooms_img/Room_Detail_Executive Suite.jpeg'%}" alt="Room Image" class="room-image">
+    <div class="room-info">
+        <h1>Executive Suite</h1>
+        <p>These rooms are urban mysticism at its finest, juxtaposed with modern amenities that are liberally positioned across the sleep and living areas. You’ve got your own personal view of the serene blue pool. Take it all in with a single-malt or a Pinot Noir, one day at a time.</p>
+        <div class="room-features">
+            <ul>
+            <li>Room Size: 43 Sq Mt <img src="{% static 'Rooms_img/Room_Detail_area.png'%}" alt="" style="width: 20px; height: 15px;"></li>
+            <li>Inclusive WiFi <i class="fas fa-wifi"></i></i></li>
+            <li>Maximum Occupancy: Up to 4 guests <i class="fas fa-users"></i> </li>
+            <li>Bed Type: King <img src="{% static 'Rooms_img/Room_Detail_bedType.png'%}" alt="" style="width: 20px; height: 20px;"></li>
+        </ul>
+    </div>
+    <div class="room-price">
+        Price per night: ₹34,187
+    </div>
+    <button class="Status"> Available </button>
+    <button class="book-button" onclick="toggleDetailsprice('Executive', 34187)">Book Now</button>
+</div>
+</div>
+
+
+
+
+<div class="room-details Luxury">
+    <img src="{% static 'Rooms_img/Room_Detail_Luxury Suite.jpeg'%}" alt="Room Image" class="room-image">
+    <div class="room-info">
+        <h1>Luxury Suite</h1>
+        <p>Experience royalty in the city of Nawabs. The elegantly designed capacious accommodation emphasizes on privacy and exceptional comfort for a senior delegate or a family. Spacious bedroom with Awadhi accents, a compact living room for a cosy tete-a-tete with an elegant dining facility and kitchenette, the suite offers the option of an additional adjoining bedroom. Classic French patio doors lead to a charming veranda and verdant garden, the perfect place to enjoy your morning cuppa.</p>
+        <div class="room-features">
+            <ul>
+                <li>Room Size: 27 Sq Mt <img src="{% static 'Rooms_img/Room_Detail_area.png'%}" alt="" style="width: 20px; height: 15px;"></li>
+                <li>Inclusive WiFi <i class="fas fa-wifi"></i></i> </li>
+                <li>Maximum Occupancy: Up to 4 guests <i class="fas fa-users"></i> </li>
+                <li>Bed Type: Twin <img src="{% static 'Rooms_img/Room_Detail_bedType.png'%}" alt="" style="width: 20px; height: 20px;"></li>
+            </ul>
+        </div>
+    <div class="room-price">
+        ₹36,846
+    </div>
+    <button class="Status"> Available </button>
+    <button class="book-button" onclick="toggleDetailsprice('Luxury', 36846)">Book Now</button>
+</div>
+</div>
+
+
+
+<div class="room-details Premium">
+    <img src="{% static 'Rooms_img/Room_Detail_Premium Suite.jpeg'%}" alt="Room Image" class="room-image">
+    <div class="room-info">
+        <h1>Premium Suite</h1>
+        <p>The lush views that frame your windows will fill you with a respect for nature, making all those who live here serene visitors...</p>
+        <div class="room-features">
+            <ul>
+                <li>Room Size: 85 Sq Mt <img src="{% static 'Rooms_img/Room_Detail_area.png'%}" alt="" style="width: 20px; height: 15px;"></li>
+                <li>Inclusive WiFi <i class="fas fa-wifi"></i></i></li>
+                <li>Maximum Occupancy: Up to 4 guests <i class="fas fa-users"></i> </li>
+                <li>Bed Type: King <img src="{% static 'Rooms_img/Room_Detail_bedType.png'%}" alt="" style="width: 20px; height: 20px;"></li>
+            </ul>
+    </div>
+    <div class="room-price">
+        Price per night: ₹48,194
+    </div>
+    <button class="Status"> Available </button>
+    <button class="book-button" onclick="toggleDetailsprice('Premium', 48194)">Book Now</button>
+</div>
+</div>
+
+
+</div>
+<script src="{%static 'room_details_script.js'%}"></script>
+</body>
+</html>
+
+
+
