@@ -7,13 +7,16 @@ def Welcome (request):
     return render(request, 'Welcome.html')
 
 def rooms (request):
-    return HttpResponse("This is rooms")
+    return render(request, 'room_details.html')
+
+def booking (request):
+    return render(request, 'Booking.html')
 
 def blogs (request):
-    return HttpResponse("This is blogs")
+    return render(request, 'blogs_reviews.html')
 
 def offers (request):
-    return HttpResponse("This is offers")
+    return render(request, 'offers.html')
 
 def signin (request):
     if request.method=="POST" :
