@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login, get_user_model
+from hms.models import Bookings, Rooms_details
 
 
 # Create your views here.
@@ -73,3 +74,20 @@ def signin (request):
 def signout (request):
     logout(request)
     return redirect('/signin')
+
+
+def booking_verification (request):
+
+    if request.method=='POST':
+        checkin=request.POST.get('checkin')
+        checkout=request.POST.get('checkout')
+        Rooms=request.POST.get('Rooms')
+        guest_count=int(request.POST.get('guest_count'))
+        username=str(request.user.username)
+        booking_ID=Bookings.objects.count()
+
+       # room_price=Rooms_details.objects.filter(room_type=Rooms)[0].price
+        dic={'checkin':checkin, 'checkout':checkout, 'roomtype':Rooms, 'guest_count':guest_count, 'price_per_night': Rooms, 'username':username, 'totalprice':0}
+        return render(request, 'booking_verification.html', dic)
+    
+    return render(request, 'booking_verification.html')

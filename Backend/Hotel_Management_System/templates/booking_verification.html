@@ -1,3 +1,4 @@
+{%load static%}
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,12 +25,15 @@
 
     <div class="container">
             Guest name: {{Username}}
-            check in : {{checkin}}
-            checkout : {{checkout}}
-            room type : {{roomtype}}
+            Check in : {{checkin}}
+            Checkout : {{checkout}}
+            Room type : {{roomtype}}
+            Guest Count: {{guest_count}}
             <br>
-            total price: {{price}}* 
-
+            Total price: {{price}} 
+            <div>
+            <a class="btn btn-primary" href="#" role="button">Link</a>
+            </div>
       </div>
 
 
