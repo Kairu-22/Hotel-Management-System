@@ -3,6 +3,9 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login, get_user_model
 from hms.models import Bookings, Rooms_details
+import datetime, re
+from functools import reduce
+from datetime import date
 
 
 # Create your views here.
@@ -84,10 +87,16 @@ def booking_verification (request):
         Rooms=request.POST.get('Rooms')
         guest_count=int(request.POST.get('guest_count'))
         username=str(request.user.username)
-        booking_ID=Bookings.objects.count()
+        booking_ID=re.sub(r'[ :-]', '', str(datetime.datetime.now())[:-7])
+        
+        date1 = date(int(checkin[0:4]), int(checkin[5:7]), int(checkin[8:]))
+        date2 = date(int(checkout[0:4]), int(checkout[5:7]), int(checkout[8:]))
+        room_price=Rooms_details.objects.filter(room_type=Rooms)[0].price
 
-       # room_price=Rooms_details.objects.filter(room_type=Rooms)[0].price
-        dic={'checkin':checkin, 'checkout':checkout, 'roomtype':Rooms, 'guest_count':guest_count, 'price_per_night': Rooms, 'username':username, 'totalprice':0}
+        numofdays= reduce(lambda x, y: (y-x).days, [date1, date2])
+        totalprice=numofdays*room_price
+
+        dic={'checkin':checkin, 'checkout':checkout, 'roomtype':Rooms, 'guest_count':guest_count, 'price_per_night': room_price, 'username':username, 'totalprice':totalprice}
         return render(request, 'booking_verification.html', dic)
     
     return render(request, 'booking_verification.html')
