@@ -1,0 +1,111 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #b6c4cd; 
+    min-width: 480px; /* Set a minimum width */
+}
+    
+    .room-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    padding: 20px;
+    border: .5px solid #faffff;
+    border-radius: 10px;
+    background-color: #b6c4cdab;
+
+    }
+    
+    .room-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    }
+    
+    .Status {
+        margin: 10px;
+    background-color: #8dc0c1;
+    color: #ffffff;
+    }
+    
+    .room-info {
+    flex: 1;
+    margin-left: 20px;
+    }
+    
+    .room-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #343a40;
+    }
+    
+    .room-features ul {
+    list-style: none;
+    padding: 0;
+    }
+    
+    .room-features li {
+    margin-bottom: 10px;
+    color: #6c757d;
+    }
+    
+    .room-price {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #343a40;
+    }
+    
+    button {
+    
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+    
+    .book-button {
+    background-color: #40abf3; /* Light blue color for book button */
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .book-button:hover {
+    background-color: #bad6de; /* Sky blue color on hover */
+    }
+    
+    @media only screen and (max-width: 820px) {
+    
+    .room-details {
+    flex-direction: column;
+    margin-bottom: 20px;
+    }
+    
+    .circle {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    }
+    
+    .circle img {
+    object-fit: contain;
+    height: 80px;
+    }
+    
+    .circle .hotel-name {
+        font-size: xx-large;
+    letter-spacing: 1
+    color :  rgb(228, 165, 32);
+    margin-top: 10px;
+    }
+    }

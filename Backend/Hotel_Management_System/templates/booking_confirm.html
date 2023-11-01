@@ -1,0 +1,17 @@
+    {% block title %}
+    Booking Succesfull | Tour De Atlantis
+    {% endblock title %}
+    
+    {%load static%}
+    {% block stylesheet %}
+    href="{% static 'css/BookingConfirm.css' %}"
+    {% endblock stylesheet %}
+    
+{% block body %}
+
+<u>
+    <h1>Thank You for Booking with TOUR DE ATLANTIS</h1>
+    <h2>Your Booking ID is {{booking_ID}}, hope to see you soon!</h2>
+</u>
+
+{% endblock body %}

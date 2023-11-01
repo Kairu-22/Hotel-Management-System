@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Playfair+Display+SC:ital@1&family=Poppins:ital,wght@0,400;0,600;1,500&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #b6c4cd;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+
+.offers {
+    text-align: center;
+    margin: 20px;
+}
+
+.offers h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.offer-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    background-color: white;
+}
+
+.offer-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    display: block;
+    transition: transform 0.2s;
+}
+
+.offer-card h2 {
+    font-size: 24px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+offer-card p {
+    font-size: 16px;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.offer-card img:hover {
+    transform: scale(1.05);
+}
+
+
+.offer-card:nth-child(2n) {
+    background-color: #f5f5f5; 
+}
+
+
+.offer-card .offer-description {
+    display: none; 
+}
+
+.offer-card .learn-more-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.offer-card p.show-description {
+    display: block;
+}
+
+
