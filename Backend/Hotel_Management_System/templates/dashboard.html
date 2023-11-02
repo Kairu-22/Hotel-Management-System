@@ -1,0 +1,82 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System</title>
+    <link rel="stylesheet" href="{%static 'dashboard.css'%}">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="{%static 'dashboard.js'%}" defer ></script>
+    <script src="https://kit.fontawesome.com/6697908e83.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="circle">
+            <img src="poseidon.png" alt="Hotel logo">
+    
+            
+        </div>
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="#" id="logoname">TOUR De ATLANTIS</a></li>
+            <li class="navbar-item"><a href="#">ABOUT</a></li>
+            <li class="navbar-item"><a href="#">ROOMS</a></li>
+            <li class="navbar-item"><a href="#">BLOGS AND REVIEWS</a></li>
+            <li class="navbar-item"><a href="#">SPECIAL OFFERS</a></li>
+            <li class="navbar-item"><a href="#">RESERVATIONS</a></li>
+            <li class="navbar-item"><a href="#" class="highlighted">LOGOUT</a></li>
+            <li class="navbar-item"><a href="#"><i class="fa-regular fa-circle-user" style="font-size: 40px;"></i></a> </li>
+            
+        </ul>
+    </nav>
+    <div class="user-dashboard">
+        <span><b>User Dashboard</b></span>
+
+    </div>
+    <div class="user-logo">
+        <i class="fa-solid fa-image-portrait"></i>
+    
+    <div class="field">
+        <span>E-Mail:{{email}}</span>
+        
+    </div>
+    </div>
+
+    <div class="Booking-Status">
+        <span><b>Booking Status:</b></span>
+    </div>
+
+    <table id="user-table">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Type of Room</th>
+                <th>Number of Guests</th>
+                <th>Check-in Date</th>
+                <th>Check-out Date</th>
+                <!--<th>Cancel</th>-->
+            </tr>
+        </thead>
+            <tbody>
+                {% for q in Booking_list %}
+						  <tr>
+							<th scope="row">1</th>
+                            <td>{{q.booking_ID}}</td>
+							<td>{{q.room_type}}</td>
+							<td>{{q.guest_count}}</td>
+							<td>{{q.checkin}}</td>
+                            <td>{{q.checkout}}</td>
+							<!--<td>{{q.status}}</td> TO BE ADDED LATER BY MAKING A CANCALATION FUNCTION.--> 
+						  </tr>
+						  {% endfor %}
+            
+        </tbody>
+    </table>
+    
+
+
+    
+</body>
+</html>

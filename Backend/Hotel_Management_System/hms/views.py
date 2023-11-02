@@ -29,6 +29,11 @@ def offers (request):
 def gallery (request):
     return render(request, 'gallery.html')
 
+def dashboard (request):
+    booking_list=(Bookings.objects.filter(Username=request.user.username))
+
+    return render(request, 'dashboard.html', {'booking_list':booking_list})
+
 def signup (request):
     if not request.user.is_anonymous: #works when user is logged in 
         return redirect("/")

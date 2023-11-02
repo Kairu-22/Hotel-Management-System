@@ -13,5 +13,6 @@ urlpatterns = [
     path('offers', views.offers, name='offers'),
     path('gallery', views.gallery, name='gallery'),
     path('booking_verification', views.booking_verification, name='booking_verification'),
+    path('dashboard', views.dashboard, name='dashboard'),  
     path('booking_confirm/', views.booking_confirm, name='booking_confirm'),
 ]
