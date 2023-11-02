@@ -2,10 +2,12 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login, get_user_model
-from hms.models import Bookings, Rooms_details
+from hms.models import Bookings, Rooms_details, Offers
 import datetime, re
 from functools import reduce
 from datetime import date
+
+from json import dumps
 
 
 # Create your views here.
@@ -87,7 +89,7 @@ def booking_verification (request):
         Rooms=request.POST.get('Rooms')
         guest_count=int(request.POST.get('guest_count'))
         username=str(request.user.username)
-        booking_ID=re.sub(r'[ :-]', '', str(datetime.datetime.now())[:-7])
+        
         
         date1 = date(int(checkin[0:4]), int(checkin[5:7]), int(checkin[8:]))
         date2 = date(int(checkout[0:4]), int(checkout[5:7]), int(checkout[8:]))
@@ -97,6 +99,48 @@ def booking_verification (request):
         totalprice=numofdays*room_price
 
         dic={'checkin':checkin, 'checkout':checkout, 'roomtype':Rooms, 'guest_count':guest_count, 'price_per_night': room_price, 'username':username, 'totalprice':totalprice}
+        
         return render(request, 'booking_verification.html', dic)
     
+    
+
     return render(request, 'booking_verification.html')
+
+def booking_confirm(request):
+    data = request.GET.get('data').split(',')
+    booking_ID="BID"+re.sub(r'[ :-]', '', str(datetime.datetime.now())[:-7])
+    print (data)
+    BOOK=Bookings(booking_ID=booking_ID, Username=data[2], checkin=data[0], checkout=data[1], room_type=data[3], total_price=1000, guest_count=0 )
+    BOOK.save()
+    return render (request, 'booking_confirm.html')
+
+
+def calculatedPrice(room,coupon):
+    # Define a dictionary mapping div classes to room prices
+    room_prices = {
+'room-details kingbed_garden': 8140 ,
+'room-details superiorbed_garden':8140,
+'room-details kingbed_pool':10187,
+'room-details Deluxe':11187,
+'room-details Executive':34187,
+'room-details Luxury':36846
+    }
+    coupon_codes = {
+    'BEACH2023':25,
+    'ROMANCE2023':25,
+    'FAMILYADVENT':25,
+    'WINTER2023':25,
+    'GOLFPARADISE':28,
+    'SPARELAX':25,
+    'FOODIE2023':18,
+    'SKI2023':25,
+    'BUSINESSPLUS':35,
+    'TROPICS2023':25,
+    'SUMMER2023':15,
+    'FAMILYFUN':35
+}   
+    price=room_prices[room]
+    if room in room_prices and coupon in coupon_codes:
+        price = room_prices[room] - (room_prices[room]*coupon_codes[coupon]/100)
+
+    return price

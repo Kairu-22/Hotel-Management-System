@@ -13,4 +13,5 @@ urlpatterns = [
     path('offers', views.offers, name='offers'),
     path('gallery', views.gallery, name='gallery'),
     path('booking_verification', views.booking_verification, name='booking_verification'),
+    path('booking_confirm/', views.booking_confirm, name='booking_confirm'),
 ]
