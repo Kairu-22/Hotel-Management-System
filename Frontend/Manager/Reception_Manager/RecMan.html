@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System</title>
+    <link rel="stylesheet" href="RecMan.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <script src="galleryscript.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="circle">
+            <img src="poseidon.png" alt="Hotel logo">
+        </div>
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="#" id="logoname">TOUR De ATLANTIS</a></li>
+            <li class="navbar-item"><a href="#">ABOUT</a></li>
+            <li class="navbar-item"><a href="#">ROOMS</a></li>
+            <li class="navbar-item"><a href="#">BLOGS AND REVIEWS</a></li>
+            <li class="navbar-item"><a href="#">SPECIAL OFFERS</a></li>
+            <li class="navbar-item"><a href="#">RESERVATIONS</a></li>
+            <li class="navbar-item"><a href="#" class="highlighted">LOGOUT</a></li>
+        </ul>
+    </nav>
+    <u>
+        <h1>Reception Manager</h1>
+    </u>
+    <br>
+    <form>
+        <div class="form-column" id="column1">
+            <div>
+          <h4>Select the date of Check-In:</h4>
+          <input type="date" id="Date_of_Booking">
+        </div>
+        <div>
+            <h4>Select the date of Check-Out:</h4>
+            <input type="date" id="Date_of_Booking">
+          </div>
+  
+          <br>
+          <br>
+          <div>
+              <h4>Online/Offline:</h4>
+              <label for="online">
+                  <input type="radio" name="online-offline" id="online" value="online"> Online
+              </label>
+              <label for="offline">
+                  <input type="radio" name="online-offline" id="offline" value="offline"> Offline
+              </label>
+          </div>
+         
+        
+          <br>
+          <br>
+        <button type="button" onclick="nextColumn(1)">Next</button>
+    </div>
+        <div class="form-column" id="column2">
+            <div>
+            <h1> Enter The Details of Customer</h1>
+            <h4>Name: 
+                <input type="text">
+            </input>
+        </div>   
+        <div>
+            <h4>Age:
+                <input type="text">
+            </input>  
+    </div>
+    
+    <div>
+        <h4> Select the gender
+            <select name="gender" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <br>
+            <br>
+            <button type="button" onclick="nextColumn(2)">Next</button>
+
+        </h4>
+    </div>
+    
+        </div>
+
+        <div class="form-column" id="column3">
+         
+            <h1>
+                Thank you! Your hotel booking is confirmed.
+                </h1>
+                
+      </form>
+      
+      
+      
+    <script>
+       let currentColumn = 1;
+
+function nextColumn() {
+  const formColumn = document.getElementById('column' + currentColumn);
+  formColumn.style.display = 'none'; // Hide the current column
+  currentColumn++;
+
+  if (currentColumn <= 4) {
+    const nextFormColumn = document.getElementById('column' + currentColumn);
+    nextFormColumn.style.display = 'block'; // Show the next column
+  } else {
+    // If all columns are completed, show the submit button
+    const submitButton = document.getElementById('submit-button');
+    submitButton.style.display = 'block';
+  }
+}
+
+    </script>
+</body>
+</html>
