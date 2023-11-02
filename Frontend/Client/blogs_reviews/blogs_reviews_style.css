@@ -195,11 +195,7 @@ body {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.head-review:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
+
 
 
 .bottom-button:hover {
