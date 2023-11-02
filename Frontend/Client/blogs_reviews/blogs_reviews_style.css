@@ -184,8 +184,33 @@ body {
     line-height: 1.5rem;
     letter-spacing: 1px;
     color: rgb(150, 150, 150);
+    
   }
   
+
+ 
+.review:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.head-review:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.bottom-button:hover {
+  background-color: rgb(79, 78, 78);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+
+
   @media (max-width: 678px) {
     .review {
       margin-top: 1.5rem;
@@ -193,7 +218,7 @@ body {
   }
   
 
-  /* Bottom buttons */
+
 .bottom-buttons {
   position: fixed;
   bottom: 0;
