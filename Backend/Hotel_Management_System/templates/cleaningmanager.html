@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Cleaning Manager | Tour De Atlantis
+{% endblock title %}
+
+{% block stylesheet %}
+href="{% static 'css/cleaningmanager.css' %}" 
+{% endblock stylesheet %}
+
+
+
+{% block body %}
+<body class="cleaning">
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Room Number</th>
+                    <th>Current Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for room in rooms %}
+                <tr>
+                    <td>{{ room.room_number }}</td>
+                    <td class="current-status-label">{{ room.current_status }}</td>
+                    <td class="action-btn-container">
+                        <form method="post" action="cleaning_manager">
+                            {% csrf_token %}
+                            <input type="hidden" name="room_number" value="{{ room.room_number }}">
+                            <button type="submit" class="action-btn">Clean Room</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock body %}
+

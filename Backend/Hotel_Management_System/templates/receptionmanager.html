@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Reception Manager | Tour De Atlantis
+{% endblock title %}
+
+{% block stylesheet %}
+href="{% static 'css/receptionmanager.css' %}" 
+{% endblock stylesheet %}
+
+
+
+{% block body %}
+<body class="reception">
+    
+    <div class="table-container">
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Room Number</th>
+                <th>Current Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for room in rooms %}
+            <tr>
+                <td>{{ room.room_number }}</td>
+                <td>{{ room.current_status }}</td>
+                <td class="action-btn-container">
+                    <form method="post" action="/book_room">
+                        {% csrf_token %}
+                        <input type="hidden" name="room_number" value="{{ room.room_number }}">
+                        <button type="submit" class="action-btn">Book Now</button>
+                    </form>
+                    <form method="post" action="/checkout_room">
+                        {% csrf_token %}
+                        <input type="hidden" name="room_number" value="{{ room.room_number }}">
+                        <button type="submit" class="action-btn">Checkout</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+    
+{% endblock body %}
