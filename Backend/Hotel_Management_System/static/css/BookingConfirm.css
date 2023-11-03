@@ -1,0 +1,102 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: left;
+    padding: 20px;
+    width: 100%;
+    background-color: #2e75a996;
+    color: white;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+}
+
+.circle {
+    width: 70px;
+    height: 70px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.navbar-list {
+    list-style: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar-item a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.navbar-item a:hover {
+    color: #e2d7b753;
+}
+
+#logoname {
+    color: #ffc107;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 1.8em;
+}
+
+.navbar-item a.highlighted {
+  
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+ 
+
+.navbar-item a.highlighted:hover {
+    color: white;
+}
+
+u {
+    display: block;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+h1, h2 {
+    margin-bottom: 10px;
+    padding: 10px;
+    color: #311d1d85;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 15px;
+    }
+
+    .navbar-list {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    u {
+        margin-top: 30px;
+        font-size: 1.2em;
+    }
+}

@@ -2,12 +2,18 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login, get_user_model
-from hms.models import Bookings, Rooms_details, Offers
+
+from hms.models import Bookings, Reviews, Room, Rooms_details
+from datetime import date, timezone
 import datetime, re
 from functools import reduce
 from datetime import date
 
 from json import dumps
+
+
+
+User = get_user_model()
 
 
 # Create your views here.
@@ -29,6 +35,7 @@ def offers (request):
 def gallery (request):
     return render(request, 'gallery.html')
 
+<<<<<<< HEAD
 def dashboard (request):
     booking_list=(Bookings.objects.filter(Username=request.user.username))
 
@@ -36,54 +43,100 @@ def dashboard (request):
 
 def signup (request):
     if not request.user.is_anonymous: #works when user is logged in 
+=======
+
+def signup(request):
+    if not request.user.is_anonymous:
+>>>>>>> c26244cfb18cc0721152d742aa8f22699cf95e02
         return redirect("/")
-    if request.method=="POST":
-
-        User = get_user_model()
-        users = User.objects.all()
-        user_list=[]
-        email_list=[]
-        for i in users:
-            user_list.append(i.username)
-            email_list.append(i.email)
-
-        name=request.POST.get('name')
-        email=request.POST.get('email')
-        password=request.POST.get('password')
-
-        if email in email_list:
-            messages.error(request, 'Email already signed up. Head to login page.')
-            return render(request,'signup.html')
+    
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
         
-        if name in user_list:
-            messages.error(request, 'Username already Taken. Please try something else.')
-            return render(request,'signup.html')
+        if not name or not email or not password:
+            messages.error(request, 'Please fill out all the fields.')
+            return render(request, 'signup.html')
+        
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'Email already signed up. Head to the login page.')
+            return render(request, 'signup.html')
+        
+        if User.objects.filter(username=name).exists():
+            messages.error(request, 'Username already taken. Please try something else.')
+            return render(request, 'signup.html')
         
         user = User.objects.create_user(username=name, email=email, first_name=name, password=password)
-        user.save()
-        messages.success(request, f'Your account is created {name}. Head to login page!')
+        messages.success(request, f'Your account is created, {name}. Head to the login page!')
+        return redirect('signin')  
     
     return render(request, 'signup.html')
 
-def signin (request):
+def user_logout(request):
+    logout(request)
+
+    return redirect('/')  # Change 'Welcome' to the appropriate view name or URL pattern
+
+def signin(request):
     if not request.user.is_anonymous:
-            return redirect('/')
-    if request.method=="POST":
-        username=request.POST.get('username')
-        password=request.POST.get('password')
+        return redirect('/booking') 
+
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         user = authenticate(username=username, password=password)
-        
+
         if user is not None:
-            login(request,user)
+            login(request, user)  # Log in the user
+            messages.success(request, f'Welcome back, {username}!')
             return redirect('/booking')
         else:
             messages.error(request, 'Wrong username or password')
-            return render(request,'signin.html')
     return render(request, 'signin.html')
 
-def signout (request):
-    logout(request)
-    return redirect('/signin')
+
+def cleaning_manager(request):
+    if request.method == 'POST':
+        room_number = request.POST.get('room_number')
+        try:
+            room = Room.objects.get(room_number=room_number)
+            if room.current_status == 'Checked Out':
+                room.current_status = 'Checked Out & Clean'
+                room.save()
+        except Room.DoesNotExist:
+            pass  # Handle the case where the room does not exist if necessary
+    rooms = Room.objects.all()
+    return render(request, 'cleaningmanager.html', {'rooms': rooms})
+
+def book_room(request):
+    if request.method == 'POST':
+        room_number = request.POST.get('room_number')
+        try:
+            room = Room.objects.get(room_number=room_number)
+            if room.current_status == 'Checked Out & Clean':
+                return redirect('/booking')
+        except Room.DoesNotExist:
+            pass  # Handle the case where the room does not exist if necessary
+    rooms = Room.objects.all()
+    return render(request, 'receptionmanager.html', {'rooms': rooms})
+
+def checkout_room(request):
+    if request.method == 'POST':
+        room_number = request.POST.get('room_number')
+        try:
+            room = Room.objects.get(room_number=room_number)
+            if room.current_status == 'Checked In':
+                room.current_status = 'Checked Out'
+                room.save()
+        except Room.DoesNotExist:
+            pass  # Handle the case where the room does not exist if necessary
+    rooms = Room.objects.all()
+    return render(request, 'receptionmanager.html', {'rooms': rooms})
+
+def reception_manager(request):
+    rooms = Room.objects.all()
+    return render(request, 'receptionmanager.html', {'rooms': rooms})
 
 
 def booking_verification (request):
@@ -107,8 +160,6 @@ def booking_verification (request):
         
         return render(request, 'booking_verification.html', dic)
     
-    
-
     return render(request, 'booking_verification.html')
 
 def booking_confirm(request):

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +9,6 @@
     {% block title %}
     {% endblock title %}
     </title>
-    
-    <!--<style>
-
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Playfair+Display+SC:ital@1&family=Poppins:ital,wght@0,400;0,600;1,500&display=swap');
-
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    overflow-x: hidden;
-    font-family: Arial, sans-serif;
-    background-color: #b6c4cd;
     
 }
 
@@ -145,7 +132,9 @@ body {
 <body>
     <nav class="navbar">
         <div class="circle">
-            <img src="../static/poseidon_logo.png" alt="Hotel logo">
+
+
+            <img src="{%static 'Welcome_img/poseidon_logo.png' %}" alt="Hotel logo">
         </div>
         <ul class="navbar-list">
             <li class="navbar-item"><a href="/" id="logoname">TOUR De ATLANTIS</a></li>
@@ -153,9 +142,22 @@ body {
             <li class="navbar-item"><a href="/rooms">ROOMS</a></li>
             <li class="navbar-item"><a href="/blogs">BLOGS AND REVIEWS</a></li>
             <li class="navbar-item"><a href="/offers">SPECIAL OFFERS</a></li>
-            <li class="navbar-item"><a href="/gallery">GALLERY</a></li>
             <li class="navbar-item"><a href="/booking">RESERVATIONS</a></li>
-            <li class="navbar-item"><a href="/signin" class="highlighted">SIGNIN</a></li>
+
+            {% if user.is_authenticated %}
+            <!-- Button with person icon -->
+            <a href="logout/">
+
+                <button class="dashboard-button" >
+                    Log Out
+                </button>
+
+            </a>
+        {% else %}
+            <!-- Sign In link for non-authenticated users -->
+            <li class="navbar-item"><a href="/signin" class="highlighted">SIGN IN</a></li>
+        {% endif %}
+            
         </ul>
     </nav>
 
@@ -176,3 +178,4 @@ body {
 </body>
 
 </html>
+

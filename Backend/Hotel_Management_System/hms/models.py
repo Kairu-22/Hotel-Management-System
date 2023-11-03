@@ -1,5 +1,15 @@
 from django.db import models
 
+class Room(models.Model):
+    room_number = models.CharField(max_length=255)
+    current_status = models.CharField(max_length=255, choices=[
+        ('Checked In', 'Checked In'),
+        ('Checked Out & Clean', 'Checked Out & Clean'),
+        ('Checked Out', 'Checked Out'),
+    ])
+
+    def __str__(self):
+        return self.room_number
 
 
 # Create your models here.
@@ -20,6 +30,7 @@ class Bookings(models.Model):
     guest_count=models.IntegerField()
     def __str__(self):
         return self.booking_ID
+
     
 class Offers(models.Model):
     offer = models.CharField(max_length=20)
@@ -27,3 +38,4 @@ class Offers(models.Model):
     room_type = models.CharField(max_length=35)
     def __str__(self):
         return self.offer
+

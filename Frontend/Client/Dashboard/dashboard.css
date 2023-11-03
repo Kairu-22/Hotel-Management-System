@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Playfair+Display+SC:ital@1&family=Poppins:ital,wght@0,400;0,600;1,500&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #b6c4cd;
+}
+
+.navbar {
+    display: flex;
+    justify-content: left;
+    /* background-color: #a6daf8; */
+    padding: 10px;
+    padding-bottom: 0px;
+    width: 100%;
+    height: 100px;
+    margin-top: 0;
+}
+
+.circle {
+    width: 90px; /* Adjust the width and height as needed */
+    height: 80px;
+    background-color: #f0f0f0; /* Circle background color */
+    border-radius: 50%; /* Makes it a circle */
+    /* display: flex; */
+    align-items: left;
+    justify-content: left;
+    overflow: hidden; /* Clip the image to the circle */
+    margin-left: 10px;
+}
+
+.circle img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.navbar-list {
+    list-style: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Add space between navigation items */
+    /* margin-left: 20px; */
+}
+
+.navbar-item a {
+    color: rgb(79, 78, 78);
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+   
+}
+
+.navbar-item a:hover {
+    color: white;
+}
+
+#logoname{
+    margin-left:10px;
+    color: goldenrod;
+    font-family: 'Playfair Display SC', serif;
+    font-size:xx-large;
+    margin-right: 200px;
+
+}
+.navbar-item a.highlighted {
+    background: linear-gradient(lightgrey,black); 
+    color: white;
+    padding: 10px 15px; 
+    border-radius: 5px; 
+}
+
+.navbar-item a.highlighted:hover {
+    color: blanchedalmond;
+}
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.user-dashboard{
+    width: 100%;
+    display:flex;
+     
+    align-items: left;
+    margin-top: 50px;
+    font-size:32px;
+    text-align: left;
+    color:black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid lightblue; /* Add a border with the desired style and color */
+    padding: 25px; /* Add padding to create space between the text and the border */
+    box-sizing: border-box; /* Include padding and border in the width */
+    background-color: lightblue;
+
+}
+
+.user-logo {
+    width:90%;
+    display:flex;
+    
+    margin-top: 30px;
+    margin-right: 10px;
+    align-items: left;
+    text-align: left;
+}
+
+.user-logo i{
+    margin-right: 40px; 
+    font-size: 150px;
+}
+
+.user-logo div{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin-top:10px;
+
+}
+
+.user-logo field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top:10px;
+}
+
+
+#email-container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #000; /* Add a border around the container */
+    padding: 5px; /* Add padding inside the container */
+    background-color: #D5FFFF;
+}
+
+#mobile-container{
+    margin-top: 5px;
+    border: 1px solid #000; /* Add a border around the container */
+    padding: 5px; /* Add padding inside the container */
+    background-color: #D5FFFF;
+}
+
+.Booking-Status{
+    width:97%;
+    align-items: left;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+    color:#000;
+    font-size: 35px;
+    text-align: left;
+}
+/* Add styling for the table */
+#user-table {
+    border-collapse: collapse; /* Remove space between table cells */
+    width: 100%; /* Make the table take the full width of its container */
+    margin-top: 20px;
+}
+
+#user-table th, #user-table td {
+    border: 1px solid #000; /* Add borders around table cells */
+    padding: 8px; /* Add padding inside table cells */
+    text-align: center; /* Center-align text in cells */
+}
+
+#user-table th {
+    background-color: #f0f0f0; /* Gray background for table header */
+}
+
+#user-table button {
+    background-color: #ff0000; /* Red background for the Cancel button */
+    color: #fff; /* White text color */
+    border: none; /* Remove button border */
+    padding: 5px 10px; /* Add padding to the button */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+#user-table button:hover {
+    background-color: #cc0000; /* Darker red on button hover */
+}
+
+.cancel-row {
+    display: none;
+  }
+  
+  .cancel-row:hover {
+    display: block;
+  }
+  
+  #empty-message {
+    display: none;
+  }
+  
+  #user-table {
+    display: table;
+  }
+  
+  .cancel-row.active {
+    display: none;
+  }
+  
+  #user-table.active {
+    display: none;
+  }
+  
+  #empty-message.active {
+    display: table-row;
+  }
+  
