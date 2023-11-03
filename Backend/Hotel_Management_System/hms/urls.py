@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from hms import views
-
+from .views import user_logout
 urlpatterns = [
     path('', views.Welcome, name='Welcome'),
     path('signin', views.signin, name='signin'),
