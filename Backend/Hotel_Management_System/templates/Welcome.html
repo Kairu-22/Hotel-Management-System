@@ -1,94 +1,56 @@
-    {% extends "base.html" %}
-    {% load static %}
 
-
-
-    {% block title %}
-    About Us | Tour De Atlantis
-    {% endblock title %}
-
-
-{% block stylesheet%}
-href="{% static 'css/Welcomestyle.css' %}" 
 {% endblock stylesheet %}
 
 
 
 
+            </div>
+                <br>Stunning. Luxurious. Paradise. Tour de Atlantis, nestled near the picturesque Baga Beach, is your gateway to a captivating coastal romance. If Baga Beach is the epitome of Goan beauty, 
+                then Tour de Atlantis is the jewel in its crown. This charming retreat beckons travelers with the promise of unforgettable experiences. <br> <br>
+                Like a page from a tropical fairytale, Tour de Atlantis transports you to a world of pristine beaches, azure swimming pools, and a beachfront farmhouse that dreams are made of. The echoes of the sea 
+                and the whispers of the palm trees combine to create a symphony of tranquility, a melody for your senses. <br> <br>
+                This coastal haven is a living museum of serenity, often overlooked by the bustling tourist routes, but deserving of its own chapter in your travel diary. There is nothing commonplace about this place. 
+                Every wave, every sunset, every moment leaves an indelible mark on your soul. The blend of coastal influences here is almost mythical, offering you an extraordinary journey through sun-kissed shores and the whispers of the Arabian Sea. <br> <br>
+                Your days at Tour de Atlantis begin with the warm embrace of the sun, reflected in the glistening swimming pool or the lush garden views from your room. Take a leisurely stroll to sample a cornucopia of culinary delights, an array of flavors that traverse from sunrise to sunset. And as the day comes to a close, swap your sandy beachwear for a chic martini, celebrating the magic of twilight.
+                
+                Tour de Atlantis is not just a destination; it's an enchanting story waiting to be written. Explore the allure of the beach, the elegance of the farmhouse, and the bliss of the swimming pool - all woven together in a narrative of your own making. Experience the essence of coastal bliss at Tour de Atlantis, where every moment is a stroke on the canvas of your unforgettable Goan adventure.
+                
+                
+                
+                
+                
+                 <br> <br> <br>
+            <b>Hotel Policies</b> <br> <br>
 
-    {% block body %}
-        {% comment %} <video> {% endcomment %}
-    <video width="700" height="360" controls loop style="border: 2px solid #333;" autoplay>
-        <source src="{% static 'Welcome_img/poseiden.mp4' %}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="content-container">
-        <div class="details">
-            <h2 style="color: rgb(167, 31, 54);">TOUR De ATLANTIS, Goa, India </h2> <br>
-
-                <h4>7 Star Deluxe Hotel in <b>Goa</b> near Baga Beach </h4> <br>
-                <p> <div class="icon-container">
-                    <img src="{% static 'Welcome_img/location.png' %}" alt="location" class="icons">
-                    <span> Bardez, Goa, India</span>
-                </div>
-                <div class="icon-container">
-                    <img src="{% static 'Welcome_img/call.png" al' %}t="call" class="icons">
-                    <span>+91 522-6711000</span>
-                </div>
-
-                <div class="icon-container">
-                    <img src="{% static 'Welcome_img/message.png"' %} alt="message" class="icons">
-                    <span><u>tourdeatlantis.goa@hotels.com</u></span>
-                </div>
-                    <br>Stunning. Luxurious. Paradise. Tour de Atlantis, nestled near the picturesque Baga Beach, is your gateway to a captivating coastal romance. If Baga Beach is the epitome of Goan beauty, 
-                    then Tour de Atlantis is the jewel in its crown. This charming retreat beckons travelers with the promise of unforgettable experiences. <br> <br>
-                    Like a page from a tropical fairytale, Tour de Atlantis transports you to a world of pristine beaches, azure swimming pools, and a beachfront farmhouse that dreams are made of. The echoes of the sea 
-                    and the whispers of the palm trees combine to create a symphony of tranquility, a melody for your senses. <br> <br>
-                    This coastal haven is a living museum of serenity, often overlooked by the bustling tourist routes, but deserving of its own chapter in your travel diary. There is nothing commonplace about this place. 
-                    Every wave, every sunset, every moment leaves an indelible mark on your soul. The blend of coastal influences here is almost mythical, offering you an extraordinary journey through sun-kissed shores and the whispers of the Arabian Sea. <br> <br>
-                    Your days at Tour de Atlantis begin with the warm embrace of the sun, reflected in the glistening swimming pool or the lush garden views from your room. Take a leisurely stroll to sample a cornucopia of culinary delights, an array of flavors that traverse from sunrise to sunset. And as the day comes to a close, swap your sandy beachwear for a chic martini, celebrating the magic of twilight.
-                    
-                    Tour de Atlantis is not just a destination; it's an enchanting story waiting to be written. Explore the allure of the beach, the elegance of the farmhouse, and the bliss of the swimming pool - all woven together in a narrative of your own making. Experience the essence of coastal bliss at Tour de Atlantis, where every moment is a stroke on the canvas of your unforgettable Goan adventure.
-                    
-                    
-                    
-                    
-                    
-                    <br> <br> <br>
-                <b>Hotel Policies</b> <br> <br>
-
-                Check-in time: 2:00 PM <br>
-                Check-out time: 12:00 Noon <br>
-                Early check-in and late check-out on request <br>
-                We accept American Express, Master Card, Visa, JCB International <br></p>
+            Check-in time: 2:00 PM <br>
+            Check-out time: 12:00 Noon <br>
+            Early check-in and late check-out on request <br>
+            We accept American Express, Master Card, Visa, JCB International <br></p>
+    </div>
+    <div class="photo-gallery">
+        <div class="photo">
+            <img src="../static/Welcome_img/welcome1.jpg" alt="Hotel Photo 1">
         </div>
-        <div class="photo-gallery">
-            <div class="photo">
-                <img src="{% static 'Welcome_img/welcome1.jpg' %}" alt="Hotel Photo 1">
-            </div>
-            <div class="photo">
-                <img src="{% static 'Welcome_img/welcome2.jpg' %}" alt="Hotel Photo 2">
-            </div>
-            <div class="photo">
-                <img src="{% static 'Welcome_img/welcome3.jpg' %}" alt="Hotel Photo 3">
-            </div>
-            <div class="photo">
-                <img src="{% static 'Welcome_img/welcome4.jpg' %}" alt="Hotel Photo 4">
-            </div>
-            <div class="photo">
-                <img src="{% static 'Welcome_img/welcome5.jpg' %}" alt="Hotel Photo 5">
-            </div>
-            <div class="photo">
-                <img src="{% static 'Welcome_img/welcome6.jpg' %}" alt="Hotel Photo 6">
-            </div>
-            <div class="photo">
-                <img src="{% static 'Welcome_img/welcome6.jpg' %}" alt="Hotel Photo 6">
-            </div>
-            <div class="photo">
-                <img src="{% static 'Welcome_img/welcome7.jpg' %}" alt="Hotel Photo 6">
-            </div>
+        <div class="photo">
+            <img src="../static/Welcome_img/welcome2.jpg" alt="Hotel Photo 2">
+        </div>
+        <div class="photo">
+            <img src="../static/Welcome_img/welcome3.jpg" alt="Hotel Photo 3">
+        </div>
+        <div class="photo">
+            <img src="../static/Welcome_img/welcome4.jpg" alt="Hotel Photo 4">
+        </div>
+        <div class="photo">
+            <img src="../static/Welcome_img/welcome5.jpg" alt="Hotel Photo 5">
+        </div>
+        <div class="photo">
+            <img src="../static/Welcome_img/welcome6.jpg" alt="Hotel Photo 6">
+        </div>
+        <div class="photo">
+            <img src="../static/Welcome_img/welcome6.jpg" alt="Hotel Photo 6">
+        </div>
+        <div class="photo">
+            <img src="../static/Welcome_img/welcome7.jpg" alt="Hotel Photo 6">
         </div>
     </div>
-    {% endblock body %}
-
 

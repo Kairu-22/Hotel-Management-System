@@ -14,6 +14,9 @@ urlpatterns = [
     path('gallery', views.gallery, name='gallery'),
     path('booking_verification', views.booking_verification, name='booking_verification'),
 
+    path('booking_confirm/', views.booking_confirm, name='booking_confirm'),
+
+
     path('cleaning_manager', views.cleaning_manager, name='manager/cleaning'),
     path('checkout_room', views.checkout_room, name='checkout_room'),
     path('reception_manager', views.reception_manager, name='reception_manager'),

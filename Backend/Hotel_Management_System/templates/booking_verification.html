@@ -7,6 +7,7 @@ Confirm Booking | Tour De Atlantis
 href="{% static 'css/BookingVerification.css' %}"
 {% endblock stylesheet %}
 
+
 {% block body %}
 <div class="container">
   Guest name: {{username}}
@@ -22,4 +23,41 @@ href="{% static 'css/BookingVerification.css' %}"
   </div>
 </div>
 {% endblock body %}
+
+
+    <script>
+      const submitbtn = document.getElementById("submitBtn");
+      submitbtn.addEventListener("onclick",showSummary());
+        
+      function showSummary() {
+        const summaryContainer = document.getElementById("summaryContainer");
+        const summaryContent = document.querySelector(".summary-content");
+
+        // Gather form data
+        const checkinDate = document.getElementById("checkin").value;
+        const checkoutDate = document.getElementById("checkout").value;
+        const roomType = document.getElementById("room_type").value;
+        const Code = document.getElementById("Offers").value;
+
+        const guestDetails = [];
+        for (let i = 1; i <= guestCountInput.value; i++) {
+            const guestName = document.getElementById(guest_name${i}).value;
+            const guestEmail = document.getElementById(guest_email${i}).value;
+            guestDetails.push({ Name: guestName, Email: guestEmail });
+        }
+
+        const summaryHTML = `
+         
+                ${guestDetails.map(guest => <li><strong>Name:</strong> ${guest.Name}, <strong>Email:</strong> ${guest.Email}</li>).join('')}
+            </ul>
+        `;
+
+        summaryContent.innerHTML = summaryHTML;
+        summaryContainer.style.display = "block";
+        document.getElementById("mainForm").style.display = "none";
+    }
+
+    </script>
+  </body>
+  </html>
 
