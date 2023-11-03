@@ -1,5 +1,15 @@
 from django.db import models
 
+class Room(models.Model):
+    room_number = models.CharField(max_length=255)
+    current_status = models.CharField(max_length=255, choices=[
+        ('Checked In', 'Checked In'),
+        ('Checked Out & Clean', 'Checked Out & Clean'),
+        ('Checked Out', 'Checked Out'),
+    ])
+
+    def __str__(self):
+        return self.room_number
 
 
 # Create your models here.
