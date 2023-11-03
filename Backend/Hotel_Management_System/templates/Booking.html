@@ -1,149 +1,90 @@
-{%load static%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Management System</title>
-    <link rel="stylesheet" href="{%static 'Booking1.css'%}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
-    <script src="{%static 'galleryscript.js'%}" defer></script>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="circle">
-            <img src="{%static 'poseidon_logo.png'%}" alt="Hotel logo">
-        </div>
-        <ul class="navbar-list">
-            <li class="navbar-item"><a href="/" id="logoname">TOUR De ATLANTIS</a></li>
-            <li class="navbar-item"><a href="/">ABOUT</a></li>
-            <li class="navbar-item"><a href="/rooms">ROOMS</a></li>
-            <li class="navbar-item"><a href="/blogs">BLOGS AND REVIEWS</a></li>
-            <li class="navbar-item"><a href="/offers">SPECIAL OFFERS</a></li>
-            <li class="navbar-item"><a href="/booking">RESERVATIONS</a></li>
-            <li class="navbar-item"><a href="/signin" class="highlighted">SIGNIN</a></li>
-        </ul>
-    </nav>
-    <u>
-        <h1>Booking</h1>
-    </u>
-    <br>
-    <form method="post" action="/booking_verification">
-        {% csrf_token %}
-        <div class="form-column" id="column1">
-            <div>
-          <h4>Select the date of Check-In:</h4>
-          <input type="date" name="checkin" id="Date_of_Booking">
-        </div>
-        <div>
-            <h4>Select the date of Check-Out:</h4>
-            <input type="date" name="checkout" id="Date_of_Booking">
-          </div>
-  
-        <div>
-        <h4>Select the room type:</h4>
-          <select name="Rooms" id="room">
-            <option value="Superior Room King Bed Garden View">Superior Room King Bed Garden View</option>
-            <option value="Superior Room Twin Bed Garden View">Superior Room Twin Bed Garden View</option>
-            <option value="Superior Room King Bed Pool View">Superior Room King Bed Pool View</option>
-            <option value="Deluxe Room King Bed">Deluxe Room King Bed</option>
-            <option value="Executive Suite">Executive Suite</option>
-            <option value="Luxury Suite">Luxury Suite</option>
-            <option value="Premium Suite">Premium Suite</option>
-          </select>
-         </div>
-          <h4>Enter the Number of People staying:</h4>
-          <select type="text" name="guest_count" id="numberOfPeople">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            </select>
-          <br>
-          <br>
-          <!--
-        <button type="button" onclick="nextColumn(1)">Next</button>
-    </div>
-        <div class="form-column" id="column2">
-            <div>
-            <h1> Enter Information of Person 1 </h1>
-            <h4>Name: 
-                <input type="text">
-            </input>
-        </div>   
-        <div>
-            <h4>Age:
-                <input type="text">
-            </input>  
-    </div>
-    
-    <div>
-        <h4> Select the gender
-            <select name="gender" id="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-            <br>
-            <br>
-            <button type="button" onclick="nextColumn(2)">Next</button>
+{% extends "base.html" %}
+{% load static %}
 
-        </h4>
-    </div>
-    
+{% block title %}
+Book A Room | Tour De Atlantis
+{% endblock title %}
+
+
+
+{% block stylesheet%}
+href="{% static 'css/Booking.css' %}" 
+{% endblock stylesheet %}
+
+{% block body %}
+
+<div class="form-container" id="mainForm">
+    <form method="post" id="bookingForm">
+        <div class="form-row">
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" name="checkin" required>
         </div>
 
-        <div class="form-column" id="column3">
-            <div>
-            <h1> Enter Information of Person 2 </h1>
-            <h4>Name: 
-                <input type="text">
-            </input>
-        </div>   
-        <div>
-            <h4>Age:
-                <input type="text">
-            </input>  
-    </div>
-    
-    <div>
-        <h4> Select the gender
-            <select name="gender" id="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-        </h4>
-              -->
-            <button type="submit">Submit</button>
+        <div class="form-row">
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" name="checkout" required>
         </div>
-    </div>
-        <div class="form-column" id="column4">
-            <h1>
-                Thank you! Your hotel booking is confirmed.
-                </h1>
-                </div>
-      </form>
 
-      
-      
-    <script>
-       let currentColumn = 1;
+        </div>
+    </form>
+</div>
 
-function nextColumn() {
-  const formColumn = document.getElementById('column' + currentColumn);
-  formColumn.style.display = 'none'; // Hide the current column
-  currentColumn++;
+{% endblock body %}
 
-  if (currentColumn <= 4) {
-    const nextFormColumn = document.getElementById('column' + currentColumn);
-    nextFormColumn.style.display = 'block'; // Show the next column
-  } else {
-    // If all columns are completed, show the submit button
-    const submitButton = document.getElementById('submit-button');
-    submitButton.style.display = 'block';
-  }
-}
+{% block script %}
+document.addEventListener("DOMContentLoaded", function () {
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const guestCountInput = document.getElementById("guestCount");
+    const guestPanelsContainer = document.querySelector(".guest-panels");
+    const roomTypeSelect = document.getElementById("room_type");
+    const formContainer = document.getElementById("mainForm");
 
-    </script>
-</body>
-</html>
+    let currentGuestPanel = 0;
+    let guestPanels = [];
+
+    nextBtn.addEventListener("click", function () {
+        if (currentGuestPanel < guestCountInput.value) {
+            if (currentGuestPanel > 0) {
+                guestPanels[currentGuestPanel - 1].style.display = "none";
+            }
+            currentGuestPanel++;
+            if (!guestPanels[currentGuestPanel - 1]) {
+                createGuestPanel();
+            }
+            guestPanels[currentGuestPanel - 1].style.display = "block";
+        }
+    });
+
+    prevBtn.addEventListener("click", function () {
+        if (currentGuestPanel > 1) {
+            guestPanels[currentGuestPanel - 1].style.display = "none";
+            currentGuestPanel--;
+            guestPanels[currentGuestPanel - 1].style.display = "block";
+            nextBtn.style.display = "inline-block";
+        }
+    });
+
+    roomTypeSelect.addEventListener("change", function () {
+        const selectedRoomType = roomTypeSelect.value;
+        document.body.style.backgroundImage = `url('/static/Rooms_img/${selectedRoomType}.jpg')`;
+    });
+
+    function createGuestPanel() {
+        const guestPanel = document.createElement("div");
+        guestPanel.className = "guest-panel";
+        guestPanel.innerHTML = `
+            <div class="form-row">
+                <label for="guest_name${currentGuestPanel}">Guest ${currentGuestPanel} Name:</label>
+                <input type="text" id="guest_name${currentGuestPanel}" name="guest_name[]" required>
+            </div>
+            <div class="form-row">
+                <label for="guest_email${currentGuestPanel}">Guest ${currentGuestPanel} Email:</label>
+                <input type="email" id="guest_email${currentGuestPanel}" name="guest_email[]" required>
+            </div>
+        `;
+        guestPanelsContainer.appendChild(guestPanel);
+        guestPanels.push(guestPanel);
+    }
+});
+{% endblock script %}
